@@ -1,10 +1,11 @@
 import { getDb } from "@/lib/db";
 import { notFound } from "next/navigation";
+import UpvoteButton from "@/components/upvote-button";
 
 type Post = {
   id: number;
   title: string;
-  content: string;
+  contents: string;
   createdAt: number;
   updatedAt: number;
 };
@@ -18,7 +19,7 @@ export default async function Page({
     const db = await getDb();
 
     const statement = db.prepare('SELECT * FROM posts WHERE id = ?');
-    const post: Post | undefined = await db.get<Post>('SELECT title, content FROM posts WHERE id = ?', id);
+    const post: Post | undefined = await db.get<Post>('SELECT title, contents FROM posts WHERE id = ?', id);
 
     if (!post) {
         return notFound();
@@ -30,8 +31,10 @@ export default async function Page({
                 {post.title}
             </h1>
             <p className="whitespace-pre-wrap mt-4">
-                {post.content}
+                {post.contents}
             </p>
+            <br></br>
+            <UpvoteButton />
         </div>
   );
 }

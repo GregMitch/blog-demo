@@ -2,6 +2,8 @@
 
 This is my code while following along this [Next.js tutorial](https://www.youtube.com/watch?v=KAQCHfu_3jw). It does have a twist where the demonstrator was using prisma to manage database connections and I opted to just use native sqlite connections.
 
+Last 10 minutes of the video covered authentication but the demonstrator used another paid service, kinde. So I opted to skip this step.
+
 ## Next.js Stuff
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).

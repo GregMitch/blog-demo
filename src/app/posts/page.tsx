@@ -1,9 +1,10 @@
 import { getDb } from "@/lib/db";
+import { createPost } from "@/actions/actions";
 
 type Post = {
   id: number;
   title: string;
-  content: string;
+  contents: string;
   createdAt: number;
   updatedAt: number;
 };
@@ -28,9 +29,9 @@ export default async function Page() {
         ))}
       </ul>
 
-      <form className="max-w-[400px] mx-auto mt-24">
-        <input type="text" placeholder="Title" className="border p-2 mb-2 w-full"/>
-        <textarea placeholder="Content" className="border p-2 mb-2 w-full"></textarea>
+      <form action={createPost} className="max-w-[400px] mx-auto mt-24">
+        <input type="text" placeholder="Title" name="title" className="border p-2 mb-2 w-full"/>
+        <textarea placeholder="Contents" name="contents" className="border p-2 mb-2 w-full"></textarea>
         <button type="submit" className="bg-blue-500 text-white px-3 py-1 rounded-md">Create Post</button>
       </form>
     </div>
